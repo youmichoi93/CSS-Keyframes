@@ -1,61 +1,71 @@
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,900&family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,300&family=Roboto:ital,wght@1,100;1,900&family=Zen+Kurenaido&display=swap');
 
 body {
- font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Jost', sans-serif;
+  height: 100vh;
 }
 
-.loading {
-  width: 50px;
-  height: 50px;
+body:before,
+body:after {
+  content: '';
+  background-color: #D1D59F;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  animation: close 1s 1s both;
+}
+
+body:before {
+  left: 0;
+}
+
+body:after {
+  right: 0;
+}
+
+.heading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
-.loading span {
-  text-transform: uppercase;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)scale(0.5);
-  animation: fade 1.5s infinite linear;
+.heading h1 {
+  margin: 0;
+  font-size: 60px;
+  color: #62A7AF;
+  animation: text 2s 2.5s both;
 }
 
-.circle {
-  width: inherit;
-  height: inherit;
-  box-sizing: border-box;
-  border: 5px solid #A9C5B9;
-  border-right-color: #DBD2D1;
-  border-left-color: #DBD2D1;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: circle 1s infinite linear; 
-}
-
-@keyframes circle {
+@keyframes close {
   0% {
-    transform: rotate(0deg);
+    width: 50%;
   }
   100% {
-    transform: rotate(360deg);
+    width: 0;
   }
 }
-@keyframes fade {
+
+@keyframes text {
   0% {
+    transform: translateY(-100px);
     opacity: 0;
   }
-  50% {
+  25% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(0);
     opacity: 1;
   }
   100% {
+    transform: translateY(100PX);
     opacity: 0;
   }
 }
-
-
